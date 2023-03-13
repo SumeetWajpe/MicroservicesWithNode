@@ -111,16 +111,78 @@
 
       // OR
 
-      let Add = (x, y) => x + y;
-      console.log(Add(10, 20));
+      //   let Add = (x, y) => x + y;
+      //   console.log(Add(10, 20));
 
       // Usage - Arrow Functions
-      let cars = ["BMW", "AUDI", "MERC"];
-      cars.forEach(function (car) {
-        console.log(car);
-      });
+      //   let cars = ["BMW", "AUDI", "MERC"];
+      //   cars.forEach(function (car) {
+      //     console.log(car);
+      //   });
       // OR
-      cars.forEach(car=>console.log(car))
+      //   cars.forEach(car => console.log(car));
+
+      // Constructor
+      // the context - the Object got binded with the function at the time of invocation
+      //   function Emp() {
+      //     this.salary = 200000;
+      //     setTimeout(function () {
+      //       console.log(this);
+      //     }, 3000);
+      //   }
+
+      // the context - (the Object) got binded at the time of creation of the function
+      //   function Emp() {
+      //     this.salary = 200000;
+      //     setTimeout(() => console.log(this.salary), 3000);
+      //   }
+
+      //   let e = new Emp();
+
+      //   let EMPasArrow = () => {
+      //     this.salary = 100000;
+      //   };
+
+      //   EMPasArrow();
+
+      // Object Literal
+      //   let company = { name: "IBM", location: "Pune" };
+      //   let enterprise = Object.create(company);
+      //   enterprise.isMNC = true;
+
+      // Object Constructor
+      //   let company = new Object();
+      //   company.name = "Accenture";
+      //   company.location = "Mumbai";
+
+      // Function Constructor
+      //   function Company(name = "Publicis Sapient", location = "Bengaluru") {
+      //     this.name = name;
+      //     this.location = location;
+      //   }
+
+      //   let c = new Company();
+
+      function Car(name = "BMW", speed = 200) {
+        this.name = name;
+        this.speed = speed;
+        this.accelerate = function () {
+          console.log(
+            "The car " + this.name + " is running at " + this.speed + " kmph !",
+          );
+        };
+      }
+
+      //   let carObj = new Car();
+      //   carObj.accelerate();
+
+      function JamesBondCar() {
+        this.hasNitroPower = true;
+      }
+
+      JamesBondCar.prototype = new Car();
+
+      let jbc = new JamesBondCar();
     </script>
   </head>
   <body></body>
