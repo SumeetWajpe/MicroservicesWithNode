@@ -70,17 +70,27 @@
 
       // Functions
       // Default Parameters
-      function PrintBook(
-        author = "Unknown",
-        title = "Unknown",
-        publisher = "Unknown",
-      ) {
-        // author = author || "Unknown";
-        // title = title || "Unknown";
+      //   function PrintBook(
+      //     author = "Unknown",
+      //     title = "Unknown",
+      //     publisher = "Unknown",
+      //   ) {
+      //     // author = author || "Unknown";
+      //     // title = title || "Unknown";
 
-        console.log(author, title, publisher);
+      //     console.log(author, title, publisher);
+      //   }
+
+      //   PrintBook();
+      //   PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", "Jaico");
+
+      // Rest parameter
+      function PrintBook(author, ...titles) {
+        console.log(author, titles);
       }
 
+      PrintBook("Dr. APJ Abdul Kalam", "India 2020", "Wings Of Fire");
+      PrintBook("Sachin Tendulkar", "Playing It My Way");
       PrintBook();
     </script>
   </head>
