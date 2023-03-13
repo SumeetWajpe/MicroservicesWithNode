@@ -163,26 +163,57 @@
 
       //   let c = new Company();
 
-      function Car(name = "BMW", speed = 200) {
-        this.name = name;
-        this.speed = speed;
-        this.accelerate = function () {
-          console.log(
-            "The car " + this.name + " is running at " + this.speed + " kmph !",
-          );
-        };
-      }
+      //   function Car(name = "BMW", speed = 200) {
+      //     this.name = name;
+      //     this.speed = speed;
+      //     this.accelerate = function () {
+      //       console.log(
+      //         "The car " + this.name + " is running at " + this.speed + " kmph !",
+      //       );
+      //     };
+      //   }
 
       //   let carObj = new Car();
       //   carObj.accelerate();
 
-      function JamesBondCar() {
-        this.hasNitroPower = true;
+      //   function JamesBondCar() {
+      //     this.hasNitroPower = true;
+      //   }
+
+      //   function SportsCar() {
+      //     this.isARaceCar = true;
+      //   }
+
+      //   JamesBondCar.prototype = new Car();
+      //   JamesBondCar.prototype.sports = new SportsCar();
+
+      //   let jbc = new JamesBondCar();
+
+      // Call
+
+      function Shape() {
+        this.length = 10;
+        this.breadth = 10;
       }
 
-      JamesBondCar.prototype = new Car();
+      function Rect() {
+        Shape.call(this);
+        this.isSquare = false;
+      }
 
-      let jbc = new JamesBondCar();
+      //   Rect.prototype = new Shape();
+
+      let r = new Rect();
+
+      Date.prototype.getDayName = function () {
+        switch (this.getDay()) {
+          case 1:
+            return "Monday";
+          default:
+            "Some other day !";
+        }
+      };
+      let date = new Date();
     </script>
   </head>
   <body></body>
