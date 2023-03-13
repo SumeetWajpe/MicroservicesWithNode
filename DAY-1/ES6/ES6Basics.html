@@ -22,13 +22,13 @@
 
       // Destructuring - Arrays / Objects
 
-    //   let cars = ["BMW", "AUDI", "MERC"];
+      //   let cars = ["BMW", "AUDI", "MERC"];
       //   let firstCar, secondCar;
       //   firstCar = cars[0];
       //   secondCar = cars[1];
       // OR
 
-    //   let [firstCar, , secondCar, thirdCar = "Aston Martin"] = cars;
+      //   let [firstCar, , secondCar, thirdCar = "Aston Martin"] = cars;
 
       // Objects
       //   let player = {
@@ -44,19 +44,29 @@
       //   let { country, name, sport } = player;
 
       // Nesting
-    //   let player = {
-    //     name: "Djokovic",
-    //     details: { sport: "Tennis", country: "Serbia", isRankedNo1: true },
-    //   };
+      //   let player = {
+      //     name: "Djokovic",
+      //     details: { sport: "Tennis", country: "Serbia", isRankedNo1: true },
+      //   };
 
-    //   let {
-    //     details: { country },
-    //   } = player;
+      //   let {
+      //     details: { country },
+      //   } = player;
 
       // Spread Operator - Arrays/Objects
-      let cars = ["BMW", "AUDI", "MERC"];
+      //   let cars = ["BMW", "AUDI", "MERC"];
+      //   let moreCars = ["TATA", "MAHINDRA"];
+      //   let allCars = [...cars, ...moreCars];
+      //   cars[0] = "XYZ";
 
+      let person = { fname: "Rafael", lname: "Nadal", country: "Spain" };
+      let player = { grandSlams: 22, country: "SPN", ...person };
 
+      function PrintPlayer({ fname, lname }) {
+        console.log(fname, lname);
+      }
+
+      PrintPlayer(player);
     </script>
   </head>
   <body></body>
