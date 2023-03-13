@@ -203,17 +203,55 @@
 
       //   Rect.prototype = new Shape();
 
-      let r = new Rect();
+      //   let r = new Rect();
 
-      Date.prototype.getDayName = function () {
-        switch (this.getDay()) {
-          case 1:
-            return "Monday";
-          default:
-            "Some other day !";
+      //   Date.prototype.getDayName = function () {
+      //     switch (this.getDay()) {
+      //       case 1:
+      //         return "Monday";
+      //       default:
+      //         "Some other day !";
+      //     }
+      //   };
+      //   let date = new Date();
+
+      // Classes
+      class Car {
+        // name = "BMW";
+        // speed = 200;
+        static carMake = 1997;
+        constructor(name = "BMW", speed = 200) {
+          this.name = name;
+          this.speed = speed;
         }
-      };
-      let date = new Date();
+        accelerate() {
+          return (
+            "The car " + this.name + " is running at " + this.speed + " kmph !"
+          );
+        }
+
+        static GetCarMake() {
+          return this.carMake;
+        }
+      }
+      let carObj = new Car();
+      //   console.log(Car.carMake);
+
+      class JamesBondCar extends Car {
+        constructor() {
+          super();
+          this.hasNitroPower = true;
+        }
+
+        accelerate() {
+          return (
+            super.accelerate() + " Has nitro power ? " + this.hasNitroPower
+          );
+        }
+      }
+
+      let jbc = new JamesBondCar();
+      console.log(jbc.accelerate());
     </script>
   </head>
   <body></body>
