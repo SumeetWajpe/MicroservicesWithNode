@@ -7,16 +7,16 @@
     <title>Document</title>
     <script>
       // Block Scoping
-      if (true) {
-        let x; // declaration
-        x = 100; // definition
-        console.log(x);
-      }
+      //   if (true) {
+      //     let x; // declaration
+      //     x = 100; // definition
+      //     console.log(x);
+      //   }
 
-      const PI = 3.14; // decl + defn
+      //   const PI = 3.14; // decl + defn
       // PI = 3.14533; // error
 
-      const company = { name: "IBM", location: "Pune" };
+      //   const company = { name: "IBM", location: "Pune" };
       //   company.name = "Accenture";
       // company = { name: "XYZ" };
 
@@ -59,14 +59,14 @@
       //   let allCars = [...cars, ...moreCars];
       //   cars[0] = "XYZ";
 
-      let person = { fname: "Rafael", lname: "Nadal", country: "Spain" };
-      let player = { grandSlams: 22, country: "SPN", ...person };
+      //   let person = { fname: "Rafael", lname: "Nadal", country: "Spain" };
+      //   let player = { grandSlams: 22, country: "SPN", ...person };
 
-      function PrintPlayer({ fname, lname }) {
-        console.log(fname, lname);
-      }
+      //   function PrintPlayer({ fname, lname }) {
+      //     console.log(fname, lname);
+      //   }
 
-      PrintPlayer(player);
+      //   PrintPlayer(player);
 
       // Functions
       // Default Parameters
@@ -85,13 +85,34 @@
       //   PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", "Jaico");
 
       // Rest parameter
-      function PrintBook(author, ...titles) {
-        console.log(author, titles);
-      }
+      //   function PrintBook(author, ...titles) {
+      //     console.log(author, titles);
+      //   }
 
-      PrintBook("Dr. APJ Abdul Kalam", "India 2020", "Wings Of Fire");
-      PrintBook("Sachin Tendulkar", "Playing It My Way");
-      PrintBook();
+      //   PrintBook("Dr. APJ Abdul Kalam", "India 2020", "Wings Of Fire");
+      //   PrintBook("Sachin Tendulkar", "Playing It My Way");
+      //   PrintBook();
+
+      // Function Declaration
+
+      //   function Add(x, y) {
+      //     return x + y;
+      //   }
+
+      // Function as an expression
+      //   let Add = function (x, y) {
+      //     return x + y;
+      //   };
+
+      // Arrow Functions
+      //   let Add = (x, y) => {
+      //     return x + y;
+      //   };
+
+      // OR
+
+      let Add = (x, y) => x + y;
+      console.log(Add(10, 20));
     </script>
   </head>
   <body></body>
