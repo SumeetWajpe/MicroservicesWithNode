@@ -14,8 +14,21 @@
       }
 
       const PI = 3.14; // decl + defn
-      PI = 3.14533; // error
-      
+      // PI = 3.14533; // error
+
+      const company = { name: "IBM", location: "Pune" };
+      //   company.name = "Accenture";
+      // company = { name: "XYZ" };
+
+      // Destructuring - Arrays / Objects
+
+      let cars = ["BMW", "AUDI", "MERC"];
+      //   let firstCar, secondCar;
+      //   firstCar = cars[0];
+      //   secondCar = cars[1];
+      // OR
+
+      let [firstCar, , secondCar, thirdCar = "Aston Martin"] = cars;
     </script>
   </head>
   <body></body>
