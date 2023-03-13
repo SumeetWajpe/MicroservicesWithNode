@@ -67,6 +67,21 @@
       }
 
       PrintPlayer(player);
+
+      // Functions
+      // Default Parameters
+      function PrintBook(
+        author = "Unknown",
+        title = "Unknown",
+        publisher = "Unknown",
+      ) {
+        // author = author || "Unknown";
+        // title = title || "Unknown";
+
+        console.log(author, title, publisher);
+      }
+
+      PrintBook();
     </script>
   </head>
   <body></body>
