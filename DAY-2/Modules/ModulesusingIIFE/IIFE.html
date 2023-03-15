@@ -5,19 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="Math.js"></script>
     <script>
       // Function declaration + Calling the function
       // IIFE - Immeditately Invocable Function Expression
       // 1. Its invoked just once during the entire program execution
       // 2. Initialization
       // 3. Module Reavealing Pattern
-      (function (msg) {
-        console.log(msg);
-      })("IIFE executed !");
+      //   (function (msg) {
+      //     console.log(msg);
+      //   })("IIFE executed !");
 
-      let result = (function (x, y) {
-        return x + y;
-      })(10, 20);
+      //   let result = (function (x, y) {
+      //     return x + y;
+      //   })(10, 20);
+
+      console.log(MathModule.Add(20, 30));
     </script>
   </head>
   <body></body>
