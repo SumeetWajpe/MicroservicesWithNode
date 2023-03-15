@@ -9,10 +9,9 @@
     <script>
       console.log("Started..");
       let thePromise = GetData();
-      thePromise.then(
-        posts => console.log(posts),
-        err => console.log(err),
-      );
+      thePromise
+        .then(posts => console.log(posts))
+        .catch(err => console.log(err));
       console.log("Ended..");
     </script>
   </head>
