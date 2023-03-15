@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Function declaration + Calling the function
+      // IIFE - Immeditately Invocable Function Expression
+      // 1. Its invoked just once during the entire program execution
+      // 2. Initialization
+      // 3. Module Reavealing Pattern
+      (function (msg) {
+        console.log(msg);
+      })("IIFE executed !");
+
+      let result = (function (x, y) {
+        return x + y;
+      })(10, 20);
+    </script>
+  </head>
+  <body></body>
+</html>
