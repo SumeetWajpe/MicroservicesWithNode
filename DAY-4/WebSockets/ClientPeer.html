@@ -7,11 +7,17 @@
     <title>Document</title>
     <script src="/socket.io/socket.io.js"></script>
     <script>
+      let socket = null;
       function Initialize() {
-        let socket = io.connect(); // io comes from  socket.io
+        socket = io.connect(); // io comes from  socket.io
         socket.on("msg_from_server_peer", dataFromServer => {
           console.log(`Message from server peer : ${dataFromServer}`);
         });
+      }
+
+      function SendMessage() {
+        let dataToBeSent = document.querySelector("#txtMessage").value;
+        socket.emit("msg_from_client_peer", dataToBeSent);
       }
     </script>
   </head>
@@ -19,5 +25,12 @@
     <header>
       <h1>Client Peer (Using Websockets)</h1>
     </header>
+    <main>
+      <label>
+        Message :
+        <input type="text" id="txtMessage" />
+        <input type="button" value="send" onclick="SendMessage()" />
+      </label>
+    </main>
   </body>
 </html>

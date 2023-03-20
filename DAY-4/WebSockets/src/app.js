@@ -18,6 +18,9 @@ io.sockets.on("connection", skt => {
     let dataToBeSent = new Date();
     skt.emit("msg_from_server_peer", dataToBeSent);
   }, 2000);
+  skt.on("msg_from_client_peer", dataFromClient => {
+    console.log(dataFromClient);
+  });
 });
 
 server.listen(port, hostname, () => {
