@@ -16,7 +16,8 @@ function DisplayProducts(products) {
   let listOfProducts = document.querySelector(".listofproducts");
   for (const product of products) {
     let newProductItem = document.createElement("li");
-    newProductItem.innerText = product.title;
+    newProductItem.innerHTML = product.title;
+    newProductItem.innerHTML += ` <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>`;
     newProductItem.style.width = "200px";
 
     newProductItem.className = "list-group-item";
