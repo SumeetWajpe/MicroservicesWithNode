@@ -1,6 +1,6 @@
 header{
-    border: 2px solid red;
+    border: 2px solid lightslategray;
     border-radius: 10px;
     padding: 10px;
-    margin: 10px;
+    margin-bottom: 10px;
 }
