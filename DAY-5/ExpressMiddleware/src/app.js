@@ -1,9 +1,14 @@
 const express = require("express");
 const app = express();
+const productsRouter = require("./routes/products.routes");
+
 const port = 3000;
 
 // built-in middleware
-app.use(express.static("static"));
+app.use(express.static("src/static"));
+
+// routes
+app.use("/products", productsRouter); // register productsRouter
 
 app.get("/", (req, res) => {
   res.sendFile("Index.html", { root: __dirname });
