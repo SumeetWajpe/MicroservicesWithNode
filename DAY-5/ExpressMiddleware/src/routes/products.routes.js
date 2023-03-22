@@ -21,6 +21,7 @@ router.delete("/delete/:id", (req, res) => {
 router.post("/newproduct", (req, res) => {
   // get the new product from client (request)
   // add a new product
+  console.log("Adding a new product here..");
 });
 
 module.exports = router;
