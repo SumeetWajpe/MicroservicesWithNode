@@ -5,17 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
     />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    />
+    <script></script>
   </head>
   <body class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -47,10 +46,31 @@
       </div>
     </nav>
     <header>
-      <h1>List Of Products !</h1>
+      <h1>New Product</h1>
     </header>
-    <main>
-      <ul class="listofproducts list-group"></ul>
-    </main>
+    <div class="row justify-content-md-center m-4">
+      <form class="col-md-3 alert alert-secondary">
+        <div class="col">
+          <label>
+            Id:
+            <input type="number" id="txtProductId" class="form-control" />
+          </label>
+        </div>
+        <div class="col">
+          <label>
+            Title:
+            <input type="text" id="txtProductTitle" class="form-control" />
+          </label>
+        </div>
+        <div class="col">
+          <label>
+            Price:
+            <input type="number" id="txtProductPrice" class="form-control" />
+          </label>
+        </div>
+
+        <button class="btn btn-success my-2">Add New Product</button>
+      </form>
+    </div>
   </body>
 </html>

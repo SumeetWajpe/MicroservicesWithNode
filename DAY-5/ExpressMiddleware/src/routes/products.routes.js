@@ -18,4 +18,9 @@ router.delete("/delete/:id", (req, res) => {
   res.json({ msg: "success" });
 });
 
+router.post("/newproduct", (req, res) => {
+  // get the new product from client (request)
+  // add a new product
+});
+
 module.exports = router;
