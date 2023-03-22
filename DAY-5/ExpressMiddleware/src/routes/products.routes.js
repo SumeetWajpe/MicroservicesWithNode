@@ -14,6 +14,7 @@ router.delete("/delete/:id", (req, res) => {
   let theProductId = req.params.id;
   // delete logic | db
   products = products.filter(p => p.id != theProductId);
+  console.log(products);
   res.json({ msg: "success" });
 });
 
