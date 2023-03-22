@@ -6,6 +6,7 @@ const port = 3000;
 
 // built-in middleware
 app.use(express.static("src/static"));
+app.use(express.json()); // reads the request object & populates req.body property
 
 // routes
 app.use("/products", productsRouter); // register productsRouter
