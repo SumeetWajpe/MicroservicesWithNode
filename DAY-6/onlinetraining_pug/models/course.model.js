@@ -6,6 +6,7 @@ let courses = [
     likes: 400,
     rating: 5,
     trainer: "Jack Well",
+    introVideo: "./videos/React.mp4",
     imageUrl:
       "https://www.webrexstudio.com/wp-content/uploads/2019/05/react-js-image.png",
     description:

@@ -4,7 +4,8 @@ block content
  
  div(class="row")
     div(class="col-md-9")
-        img(src=course.imageUrl width="100%" alt=course.title)
+        //- img(src=course.imageUrl width="100%" alt=course.title)
+        video(src="/video/"+course.id controls height="100%" width="100%")
     div(class="col-md-3")
         h2= course.title 
         div 
