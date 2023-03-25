@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
+    />
+
+    <script>
+      function AddNewCourse(e) {
+        e.preventDefault();
+        fetch("http://localhost:4000/courses/newcourse", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: document.querySelector("#txtCourseId").value,
+            title: document.querySelector("#txtCourseTitle").value,
+            price: document.querySelector("#txtCoursePrice").value,
+            likes: document.querySelector("#txtCourseLikes").value,
+            rating: document.querySelector("#txtCourseRating").value,
+            trainer: document.querySelector("#txtCourseTrainer").value,
+            imageUrl: document.querySelector("#txtCourseImageUrl").value,
+          }),
+        })
+          .then(res => res.json())
+          .then(message => {
+            if (message.msg == "success") {
+              window.location = "/"; // reload the page
+            }
+          }); // POST
+      }
+    </script>
+  </head>
+  <body class="container">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="NewCourse.html">New Course</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header>
+      <h1>New Course</h1>
+    </header>
+    <div class="row justify-content-center m-2">
+      <div class="col-4 justify-content-center">
+        <form onsubmit="AddNewCourse(event)" class="alert alert-secondary">
+          <div class="col">
+            <label>
+              Id:
+              <input type="text" id="txtCourseId" class="form-control" />
+            </label>
+          </div>
+          <div class="col">
+            <label>
+              Title:
+              <input type="text" id="txtCourseTitle" class="form-control" />
+            </label>
+          </div>
+          <div class="col">
+            <label>
+              Price:
+              <input type="number" id="txtCoursePrice" class="form-control" />
+            </label>
+          </div>
+          <div class="col">
+            <label>
+              Trainer:
+              <input type="text" id="txtCourseTrainer" class="form-control" />
+            </label>
+          </div>
+          <div class="col">
+            <label>
+              Rating:
+              <input type="number" id="txtCourseRating" class="form-control" />
+            </label>
+          </div>
+          <div class="col">
+            <label>
+              Likes:
+              <input type="number" id="txtCourseLikes" class="form-control" />
+            </label>
+          </div>
+          <div class="col">
+            <label>
+              Image Url:
+              <input type="text" id="txtCourseImageUrl" class="form-control" />
+            </label>
+          </div>
+          <br />
+          <button class="btn btn-success my-2">Add New Course</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
