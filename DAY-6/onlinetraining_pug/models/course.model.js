@@ -31,6 +31,8 @@ let courses = [
     trainer: "Bishop Renny",
     imageUrl:
       "https://railsware.com/blog/wp-content/uploads/2018/09/2400%D1%851260-rw-blog-node-js.png",
+    description:
+      "Node.js is a cross-platform, open-source server environment that can run on Windows, Linux, Unix, macOS, and more. Node.js is a back-end JavaScript runtime environment, runs on the V8 JavaScript Engine, and executes JavaScript code outside a web browser.Node.js is a cross-platform, open-source server environment that can run on Windows, Linux, Unix, macOS, and more. Node.js is a back-end JavaScript runtime environment, runs on the V8 JavaScript Engine, and executes JavaScript code outside a web browser.",
   },
   {
     id: 4,
@@ -42,6 +44,8 @@ let courses = [
 
     imageUrl:
       "https://www.trio.dev/hubfs/Imported_Blog_Media/7fad34d867a32f732b37534ff013e916-3-2.jpg",
+    description:
+      "Angular is a TypeScript-based, free and open-source web application framework led by the Angular Team at Google and by a community of individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS.",
   },
   {
     id: 5,
@@ -51,6 +55,8 @@ let courses = [
     rating: 4,
     trainer: "Jenny Alter",
     imageUrl: "https://miro.medium.com/max/2000/1*PCKC8Ufml-wvb9Vjj3aaWw.jpeg",
+    description:
+      "Flutter is an open-source UI software development kit created by Google. It is used to develop cross-platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017. ",
   },
 ];
 
