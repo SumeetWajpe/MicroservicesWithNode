@@ -8,6 +8,8 @@ let courses = [
     trainer: "Jack Well",
     imageUrl:
       "https://www.webrexstudio.com/wp-content/uploads/2019/05/react-js-image.png",
+    description:
+      "React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.React is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies.",
   },
   {
     id: 2,
@@ -17,6 +19,8 @@ let courses = [
     rating: 5,
     trainer: "John Jacob",
     imageUrl: "https://logicalidea.co/wp-content/uploads/2020/05/Redux.jpg",
+    description:
+      "Redux is an open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces. Similar to Facebook's Flux architecture, it was created by Dan Abramov and Andrew Clark. ",
   },
   {
     id: 3,
