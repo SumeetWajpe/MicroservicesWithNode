@@ -13,4 +13,14 @@ router.get("/", async function (req, res, next) {
   }
 });
 
+router.post("/newproduct", async (req, res) => {
+  try {
+    // req.body
+    const { id, title, price } = req.body;
+    let newProduct = new Product({ id, title, price });
+    await newProduct.save();
+    res.status(201).send("product added successfully !");
+  } catch (error) {}
+});
+
 module.exports = router;
