@@ -3,7 +3,7 @@ const router = express.Router();
 let listofcourses = require("../models/course.model");
 
 router.get("/", (req, res) => {
-  res.render("courses", { title: "List Of Courses" });
+  res.render("courses", { title: "List Of Courses", listofcourses });
 });
 
 // router.post("/newcourse", (req, res) => {
