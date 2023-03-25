@@ -19,6 +19,7 @@ let courses = [
     likes: 600,
     rating: 5,
     trainer: "John Jacob",
+    introVideo: "./videos/React.mp4",
     imageUrl: "https://logicalidea.co/wp-content/uploads/2020/05/Redux.jpg",
     description:
       "Redux is an open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces. Similar to Facebook's Flux architecture, it was created by Dan Abramov and Andrew Clark. ",
@@ -30,6 +31,7 @@ let courses = [
     likes: 900,
     rating: 4,
     trainer: "Bishop Renny",
+    introVideo: "./videos/React.mp4",
     imageUrl:
       "https://railsware.com/blog/wp-content/uploads/2018/09/2400%D1%851260-rw-blog-node-js.png",
     description:
@@ -42,7 +44,7 @@ let courses = [
     likes: 200,
     rating: 3,
     trainer: "Matthew Bell",
-
+    introVideo: "./videos/React.mp4",
     imageUrl:
       "https://www.trio.dev/hubfs/Imported_Blog_Media/7fad34d867a32f732b37534ff013e916-3-2.jpg",
     description:
@@ -55,6 +57,7 @@ let courses = [
     likes: 700,
     rating: 4,
     trainer: "Jenny Alter",
+    introVideo: "./videos/React.mp4",
     imageUrl: "https://miro.medium.com/max/2000/1*PCKC8Ufml-wvb9Vjj3aaWw.jpeg",
     description:
       "Flutter is an open-source UI software development kit created by Google. It is used to develop cross-platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web from a single codebase. First described in 2015, Flutter was released in May 2017. ",
