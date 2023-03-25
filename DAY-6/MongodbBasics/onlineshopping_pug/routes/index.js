@@ -1,9 +1,16 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
+const Product = require("../models/products.model");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get("/", async function (req, res, next) {
+  try {
+    // fetching data from mongodb
+    let products = await Product.find({});
+    res.render("index", { products });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;
