@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 var coursesRouter = require("./routes/courses");
 
@@ -16,10 +17,10 @@ var app = express();
 //   console.log("Connected to Online Training DB - Atlas !");
 // });
 
-mongoose.connect(
-  "mongodb+srv://sumeetwajpe:vNwbqlBd7P5omI57@cluster0.xd8xtse.mongodb.net/trainingdb_atlas",
-  { useNewUrlParser: true, useUnifiedTopology: true },
-);
+mongoose.connect(process.env.ATLAS_CONNECTION_STRING, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 mongoose.connection.on("open", () => {
   console.log("Connected to Online Training DB - Atlas !");
 });
