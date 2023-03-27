@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-let listofcourses = require("../models/course.model");
+let Course = require("../models/course.model");
 const fs = require("fs");
 const path = require("path");
 
-router.get("/", (req, res) => {
+router.get("/", async(req, res) => {
+  let listofcourses = await Course.find({});
   res.render("courses", { title: "List Of Courses", listofcourses });
 });
 
@@ -37,13 +38,10 @@ router.route("/video/:id").get((req, res) => {
     "Content-Type": "video/mp4",
     "Content-Length": contentLength,
   };
-  const videoStream = fs.createReadStream(
-    videoPath,
-    {
-      start,
-      end,
-    },
-  );
+  const videoStream = fs.createReadStream(videoPath, {
+    start,
+    end,
+  });
   res.writeHead(206, headers);
 
   videoStream.pipe(res); // stream the video as response to client
