@@ -16,7 +16,7 @@ app.post("/login", (req, res) => {
   jwt.sign(
     payload,
     process.env.JWT_SECRET,
-    { expiresIn: "2Days" },
+    { expiresIn: "2 Days" },
     (err, token) => {
       if (err) console.log(err);
       else return res.json({ token });
@@ -25,8 +25,15 @@ app.post("/login", (req, res) => {
 });
 
 // /verify - verify the JWT
-app.post("/verify", () => {
+app.post("/verify", (req, res) => {
   // verify()
+  const authHeader = req.headers.authorization;
+  const token = authHeader.split(" ")[1];
+  jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
+    if (err) res.status(500).json({ err: err.message });
+    console.log(decodedToken);
+  });
+  res.json({ msg: "success" });
 });
 
 app.listen(process.env.PORT, () => {
