@@ -7,6 +7,20 @@ console.log(typeof x);
 // Type annotations
 var str: string;
 // str = 100;
-
-var z;
+var b: boolean;
+var n: number;
+var z: any; // not a good practise
+z = 10;
+z = "Hello";
+z = true;
+z = [];
+z = {};
 console.log(z);
+
+// Functions
+
+function Add(x: number, y: number): number {
+  return x + y;
+}
+let result: number = Add(30, 30);
+console.log(result);
