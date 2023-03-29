@@ -19,6 +19,7 @@ function isAuthenticated(req, res, next) {
           message: err.message,
         });
       } else {
+        req.user = user;
         next(); // successful authentication
       }
     });

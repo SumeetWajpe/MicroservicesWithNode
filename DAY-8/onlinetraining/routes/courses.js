@@ -7,13 +7,17 @@ const isAuthenticated = require("../middleware/auth.middleware");
 
 router.get("/", isAuthenticated, async (req, res) => {
   let listofcourses = await Course.find({});
-  res.render("courses", { title: "List Of Courses", listofcourses });
+  res.render("courses", {
+    title: "List Of Courses",
+    listofcourses,
+    name: req.user.name,
+  });
 });
 
 router.get("/coursedetails/:id", isAuthenticated, async (req, res) => {
   let courseId = +req.params.id;
   let course = await Course.findOne({ id: courseId });
-  res.render("coursedetails", { course });
+  res.render("coursedetails", { course, name: req.user.name });
 });
 
 router.get("/video/:id", isAuthenticated, async (req, res) => {
@@ -46,7 +50,8 @@ router.get("/video/:id", isAuthenticated, async (req, res) => {
   videoStream.pipe(res); // stream the video as response to client
 });
 router.get("/newcourse", isAuthenticated, async (req, res) => {
-  res.render("newcourse", { title: "New Course" });
+  //console.log(req.user);
+  res.render("newcourse", { title: "New Course", name: req.user.name });
 });
 router.post("/newcourse", isAuthenticated, (req, res) => {
   let newCourse = req.body;
