@@ -6,9 +6,9 @@ block content
             .col-md-4 
                 form(class="f-flex justify-content-md-center flex-column" method="POST" action="/auth/login")
                     h1 Please Sign In 
-                    label(for="inputEmail") Email address
+                    label(for="inputEmail" class="sr-only") Email address
                     input(type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus)
-                    label(for="inputPassword") Email address
+                    label(for="inputPassword" class="sr-only") Password 
                     input(type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus)
 
                     - var buttonClass = ["btn","btn-primary","align-self-center"]
