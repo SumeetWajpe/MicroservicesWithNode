@@ -15,8 +15,32 @@ z = [];
 z = {};
 console.log(z);
 // Functions
-function Add(x, y) {
-    return x + y;
-}
-var result = Add(30, 30);
-console.log(result);
+// function Add(x: number, y: number): number {
+//   return x + y;
+// }
+// let result: number = Add(30, 30);
+// console.log(result);
+// function Add(x: number, y: number): number | string {
+//   if (x == 0) {
+//     return "x should be greater that 0 !";
+//   }
+//   return x + y;
+// }
+// let result: number | string = Add(30, 30);
+// console.log(result);
+// Optional Parameters
+// function PrintBook(author?: string, title?: string): void {
+//   console.log(author, title);
+// }
+// PrintBook();
+// PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire");
+// function PrintBook(
+//   author: string = "Unknown",
+//   title: string = "Unknown",
+// ): void {
+//   console.log(author, title);
+// }
+// PrintBook();
+// Arrow Functions
+var Add = function (x, y) { return x + y; };
+console.log(Add(30, 50));
