@@ -1,0 +1,15 @@
+extends layout 
+
+block content 
+    div.container
+        .row.justify-content-md-center.m-4 
+            .col-md-4 
+                form(class="f-flex justify-content-md-center flex-column" method="POST" action="/auth/login")
+                    h1 Please Sign In 
+                    label(for="inputEmail") Email address
+                    input(type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus)
+                    label(for="inputPassword") Email address
+                    input(type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus)
+
+                    - var buttonClass = ["btn","btn-primary","align-self-center"]
+                    button(class=buttonClass type="submit") Sign In

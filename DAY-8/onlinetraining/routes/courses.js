@@ -49,7 +49,6 @@ router.get("/newcourse", async (req, res) => {
 });
 router.post("/newcourse", (req, res) => {
   let newCourse = req.body;
-  console.log(newCourse);
   let newCourseToBeAdded = new Course({
     ...newCourse,
     introVideo: "./videos/React.mp4",
