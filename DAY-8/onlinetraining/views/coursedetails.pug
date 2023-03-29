@@ -1,0 +1,19 @@
+extends layout
+
+block content
+ 
+ div(class="row")
+    div(class="col-md-9")
+        //- img(src=course.imageUrl width="100%" alt=course.title)
+        video(src="/courses/video/"+course.id controls height="100%" width="100%")
+    div(class="col-md-3")
+        h2= course.title 
+        div 
+            - for(let i = 0; i < course.rating; i++) 
+                  span(style="color: orange;")
+                    i(class="fas fa-star")
+        h5 ₹. #{course.price}
+        h5 #{course.trainer}
+        p #{course.description}
+
+ 

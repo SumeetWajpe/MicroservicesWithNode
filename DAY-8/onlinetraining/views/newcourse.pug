@@ -1,0 +1,38 @@
+extends layout 
+
+block content 
+    header
+      h1 New Course
+    .row.justify-content-center.m-2
+      .col-4.justify-content-center
+        form.alert.alert-secondary(method="POST" action="/courses/newcourse")
+          .col
+            label
+              | Id:
+              input#txtCourseId.form-control(type='text' name="id")
+          .col
+            label
+              | Title:
+              input#txtCourseTitle.form-control(type='text' name="title")
+          .col
+            label
+              | Price:
+              input#txtCoursePrice.form-control(type='number' name="price")
+          .col
+            label
+              | Trainer:
+              input#txtCourseTrainer.form-control(type='text' name="trainer")
+          .col
+            label
+              | Rating:
+              input#txtCourseRating.form-control(type='number' name="rating")
+          .col
+            label
+              | Likes:
+              input#txtCourseLikes.form-control(type='number' name="likes")
+          .col
+            label
+              | Image Url:
+              input#txtCourseImageUrl.form-control(type='text' name="imageUrl")
+          br
+          button.btn.btn-success.my-2 Add New Course
