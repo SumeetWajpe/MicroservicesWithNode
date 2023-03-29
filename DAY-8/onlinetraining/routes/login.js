@@ -15,7 +15,7 @@ router.post("/auth/login", async (req, res) => {
     res.render("error", { message: "User does not exist !" });
   }
   // sign -> generate the token !
-  let payload = { email };
+  let payload = { email: user.email, name: user.name };
   jwt.sign(
     payload,
     process.env.JWT_SECRET,

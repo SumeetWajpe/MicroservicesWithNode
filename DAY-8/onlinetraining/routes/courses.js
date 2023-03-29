@@ -3,6 +3,7 @@ const router = express.Router();
 let Course = require("../models/course.model");
 const fs = require("fs");
 const path = require("path");
+const isAuthenticated = require("../middleware/auth.middleware");
 
 router.get("/", async (req, res) => {
   let listofcourses = await Course.find({});
@@ -44,7 +45,7 @@ router.get("/video/:id", async (req, res) => {
 
   videoStream.pipe(res); // stream the video as response to client
 });
-router.get("/newcourse", async (req, res) => {
+router.get("/newcourse", isAuthenticated, async (req, res) => {
   res.render("newcourse", { title: "New Course" });
 });
 router.post("/newcourse", (req, res) => {
