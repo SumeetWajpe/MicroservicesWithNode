@@ -44,3 +44,19 @@ console.log(z);
 // Arrow Functions
 var Add = function (x, y) { return x + y; };
 console.log(Add(30, 50));
+// Array
+var cars = ["BMW", "AUDI", "FERRARI"];
+var moreCars = new Array("TATA", "MAHINDRA"); // Generics
+console.log(moreCars);
+// let player: IPlayer = { name: "Djokovic", isWorldNo1: true, xyz: 123 };
+// Classes
+var Emp = /** @class */ (function () {
+    function Emp(empName, empSalary) {
+        if (empName === void 0) { empName = "Unknown"; }
+        if (empSalary === void 0) { empSalary = 0; }
+        this.empName = empName;
+        this.empSalary = empSalary;
+    }
+    return Emp;
+}());
+var e = new Emp("Viraj", 200000);

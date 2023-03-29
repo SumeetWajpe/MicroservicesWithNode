@@ -54,3 +54,29 @@ console.log(z);
 // Arrow Functions
 let Add = (x: number, y: number): number => x + y;
 console.log(Add(30, 50));
+
+// Array
+let cars: string[] = ["BMW", "AUDI", "FERRARI"];
+let moreCars: Array<string> = new Array<string>("TATA", "MAHINDRA"); // Generics
+console.log(moreCars);
+
+// Interfaces
+interface IPlayer {
+  name: string;
+  isWorldNo1: boolean;
+}
+// let player: IPlayer = { name: "Djokovic", isWorldNo1: true, xyz: 123 };
+
+// Classes
+class Emp {
+  //   private empId: number;
+  public empName: string;
+  public empSalary: number;
+
+  constructor(empName = "Unknown", empSalary = 0) {
+    this.empName = empName;
+    this.empSalary = empSalary;
+  }
+}
+
+let e: Emp = new Emp("Viraj", 200000);
