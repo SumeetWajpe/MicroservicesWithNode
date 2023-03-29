@@ -5,18 +5,18 @@ const fs = require("fs");
 const path = require("path");
 const isAuthenticated = require("../middleware/auth.middleware");
 
-router.get("/", async (req, res) => {
+router.get("/", isAuthenticated, async (req, res) => {
   let listofcourses = await Course.find({});
   res.render("courses", { title: "List Of Courses", listofcourses });
 });
 
-router.get("/coursedetails/:id", async (req, res) => {
+router.get("/coursedetails/:id", isAuthenticated, async (req, res) => {
   let courseId = +req.params.id;
   let course = await Course.findOne({ id: courseId });
   res.render("coursedetails", { course });
 });
 
-router.get("/video/:id", async (req, res) => {
+router.get("/video/:id", isAuthenticated, async (req, res) => {
   let courseId = +req.params.id;
   let course = await Course.findOne({ id: courseId });
   let videoPath = course.introVideo;
@@ -48,7 +48,7 @@ router.get("/video/:id", async (req, res) => {
 router.get("/newcourse", isAuthenticated, async (req, res) => {
   res.render("newcourse", { title: "New Course" });
 });
-router.post("/newcourse", (req, res) => {
+router.post("/newcourse", isAuthenticated, (req, res) => {
   let newCourse = req.body;
   let newCourseToBeAdded = new Course({
     ...newCourse,
