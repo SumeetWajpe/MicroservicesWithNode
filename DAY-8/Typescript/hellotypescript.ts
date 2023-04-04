@@ -61,11 +61,21 @@ let moreCars: Array<string> = new Array<string>("TATA", "MAHINDRA"); // Generics
 console.log(moreCars);
 
 // Interfaces
-interface IPlayer {
+interface IPerson {
   name: string;
-  isWorldNo1: boolean;
+  age: number;
 }
-// let player: IPlayer = { name: "Djokovic", isWorldNo1: true, xyz: 123 };
+interface IPlayer {
+  type: string;
+  isSeeded: boolean;
+}
+
+class Player implements IPlayer, IPerson {
+  name: string;
+  age: number;
+  type: string;
+  isSeeded: boolean;
+}
 
 // Classes
 class Emp {
@@ -77,6 +87,30 @@ class Emp {
     this.empName = empName;
     this.empSalary = empSalary;
   }
+
+  getSalary(): number {
+    return this.empSalary;
+  }
 }
 
-let e: Emp = new Emp("Viraj", 200000);
+// let e: Emp = new Emp("Viraj", 200000);
+
+class Manager extends Emp {
+  incentives: number;
+  constructor(name: string, salary: number, incentives: number) {
+    super();
+    this.incentives = incentives;
+  }
+  getSalary(): number {
+    return this.empSalary + this.incentives;
+  }
+}
+
+let mgr: Manager = new Manager("Rohit", 200000, 100000);
+
+// Enhanced Class Syntax
+class EnhancedEmp {
+  constructor(public empName: string, public empSalary: number) {}
+}
+
+let enhancedEmp = new EnhancedEmp("John", 100000);
