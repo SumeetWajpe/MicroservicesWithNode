@@ -141,3 +141,19 @@ class Point<T> {
 }
 
 let point = new Point<number>(100, 200);
+
+// constraints
+class Company<T extends Emp> {}
+
+// let cmp = new Company<number>();// Error
+let cmp = new Company<Manager>(); // Allowed
+
+enum Designations {
+  Developer=100,
+  Architect,
+  Trainer,
+  Tester,
+}
+
+let d: Designations = Designations.Trainer;
+console.log(d);
