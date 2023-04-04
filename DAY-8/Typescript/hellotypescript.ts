@@ -114,3 +114,24 @@ class EnhancedEmp {
 }
 
 let enhancedEmp = new EnhancedEmp("John", 100000);
+
+// Type alias
+
+type Header = {
+  authorization: string;
+  contenttype: string;
+};
+
+type MyRequest = {
+  body: string;
+  headers: Header;
+};
+
+// Generics - Function, Interface, Class
+
+function Swap<T>(x: T, y: T) {
+  // swap logic
+}
+
+Swap<string>("Hello", "World");
+Swap<number>(10, 20);
