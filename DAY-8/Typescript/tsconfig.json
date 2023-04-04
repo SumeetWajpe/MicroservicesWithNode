@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "noImplicitAny": true
+    },"include": ["./convertToES6.ts"]
+}

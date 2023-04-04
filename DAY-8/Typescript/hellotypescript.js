@@ -1,19 +1,4 @@
 // console.log("Hello Typescript !");
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var x = "10"; // Type inference
 console.log(typeof x);
 //x = "Hello!"; // Type - safe
@@ -57,75 +42,61 @@ console.log(z);
 // }
 // PrintBook();
 // Arrow Functions
-var Add = function (x, y) { return x + y; };
+let Add = (x, y) => x + y;
 console.log(Add(30, 50));
 // Array
-var cars = ["BMW", "AUDI", "FERRARI"];
-var moreCars = new Array("TATA", "MAHINDRA"); // Generics
+let cars = ["BMW", "AUDI", "FERRARI"];
+let moreCars = new Array("TATA", "MAHINDRA"); // Generics
 console.log(moreCars);
-var Player = /** @class */ (function () {
-    function Player() {
-    }
-    return Player;
-}());
+class Player {
+}
 // Classes
-var Emp = /** @class */ (function () {
-    function Emp(empName, empSalary) {
-        if (empName === void 0) { empName = "Unknown"; }
-        if (empSalary === void 0) { empSalary = 0; }
+class Emp {
+    constructor(empName = "Unknown", empSalary = 0) {
         this.empName = empName;
         this.empSalary = empSalary;
     }
-    Emp.prototype.getSalary = function () {
+    getSalary() {
         return this.empSalary;
-    };
-    return Emp;
-}());
-// let e: Emp = new Emp("Viraj", 200000);
-var Manager = /** @class */ (function (_super) {
-    __extends(Manager, _super);
-    function Manager(name, salary, incentives) {
-        var _this = _super.call(this) || this;
-        _this.incentives = incentives;
-        return _this;
     }
-    Manager.prototype.getSalary = function () {
+}
+// let e: Emp = new Emp("Viraj", 200000);
+class Manager extends Emp {
+    constructor(name, salary, incentives) {
+        super();
+        this.incentives = incentives;
+    }
+    getSalary() {
         return this.empSalary + this.incentives;
-    };
-    return Manager;
-}(Emp));
-var mgr = new Manager("Rohit", 200000, 100000);
+    }
+}
+let mgr = new Manager("Rohit", 200000, 100000);
 // Enhanced Class Syntax
-var EnhancedEmp = /** @class */ (function () {
-    function EnhancedEmp(empName, empSalary) {
+class EnhancedEmp {
+    constructor(empName, empSalary) {
         this.empName = empName;
         this.empSalary = empSalary;
     }
-    return EnhancedEmp;
-}());
-var enhancedEmp = new EnhancedEmp("John", 100000);
+}
+let enhancedEmp = new EnhancedEmp("John", 100000);
 // Generics - Function, Interface, Class
 function Swap(x, y) {
     // swap logic
 }
 Swap("Hello", "World");
 Swap(10, 20);
-var Point = /** @class */ (function () {
-    function Point(x, y) {
+class Point {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
     }
-    return Point;
-}());
-var point = new Point(100, 200);
+}
+let point = new Point(100, 200);
 // constraints
-var Company = /** @class */ (function () {
-    function Company() {
-    }
-    return Company;
-}());
+class Company {
+}
 // let cmp = new Company<number>();// Error
-var cmp = new Company(); // Allowed
+let cmp = new Company(); // Allowed
 var Designations;
 (function (Designations) {
     Designations[Designations["Developer"] = 100] = "Developer";
@@ -133,5 +104,5 @@ var Designations;
     Designations[Designations["Trainer"] = 102] = "Trainer";
     Designations[Designations["Tester"] = 103] = "Tester";
 })(Designations || (Designations = {}));
-var d = Designations.Trainer;
+let d = Designations.Trainer;
 console.log(d);
