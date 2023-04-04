@@ -135,3 +135,9 @@ function Swap<T>(x: T, y: T) {
 
 Swap<string>("Hello", "World");
 Swap<number>(10, 20);
+
+class Point<T> {
+  constructor(public x: T, public y: T) {}
+}
+
+let point = new Point<number>(100, 200);
