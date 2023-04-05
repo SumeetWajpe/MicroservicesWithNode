@@ -7,21 +7,29 @@ import {
   Post,
   Req,
   Res,
+  UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { CreateNewCourseDTO } from 'src/courses/dtos/newcourse.dto';
+import { AuthguardGuard } from 'src/courses/guards/authguard/authguard.guard';
 import { CoursesService } from 'src/courses/services/courses/courses.service';
 
 @Controller('courses')
+// @UseGuards(AuthguardGuard)// at controller level
 export class CoursesController {
   /**
    *
    */
   constructor(private servObj: CoursesService) {}
   @Get()
+  @UseGuards(AuthguardGuard) // at the route level
   getCourses() {
-    return this.servObj.getAllCourses();
+    try {
+      return this.servObj.getAllCourses();
+    } catch (error) {
+      // raise the HttpException()
+    }
   }
 
   @Get('reviews')
