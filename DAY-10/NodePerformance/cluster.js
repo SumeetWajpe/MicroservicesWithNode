@@ -13,6 +13,10 @@ if (cluster.isPrimary) {
   console.log(`Primary process  ${process.pid} running !`);
   cluster.fork();
   cluster.fork();
+  // should fork() for max logical cores of a machine
+  //   for (let i = 0; i < numOfCores; i++) {
+  //     cluster.fork();
+  //   }
 } else {
   console.log(`Worker process ${process.pid} running !`);
 
