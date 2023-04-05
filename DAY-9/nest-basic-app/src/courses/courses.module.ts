@@ -1,4 +1,9 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { CoursesController } from './controllers/courses/courses.controller';
 import { CoursesService } from './services/courses/courses.service';
 import { AuthmiddlewareMiddleware } from './middlewares/authmiddleware/authmiddleware.middleware';
@@ -9,6 +14,11 @@ import { AuthmiddlewareMiddleware } from './middlewares/authmiddleware/authmiddl
 })
 export class CoursesModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthmiddlewareMiddleware).forRoutes('*');
+    consumer
+      .apply(AuthmiddlewareMiddleware)
+      .forRoutes(
+        { path: 'courses', method: RequestMethod.GET },
+        { path: 'courses/:id', method: RequestMethod.GET },
+      );
   }
 }
