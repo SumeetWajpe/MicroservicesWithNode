@@ -9,6 +9,7 @@ require("dotenv").config();
 
 var loginRouter = require("./routes/login");
 var coursesRouter = require("./routes/courses");
+let Course = require("../models/course.model");
 
 var app = express();
 
