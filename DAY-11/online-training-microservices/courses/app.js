@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const Course = require("./models/courses.model");
 var app = express();
+const axios = require("axios");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -36,6 +37,11 @@ app.post("/newcourse", async (req, res) => {
     introVideo: "./videos/React.mp4",
   });
   await newCourseToBeAdded.save();
+  // the event bus to be notified that the course has been added to db !
+  axios.post("http://localhost:3003/events", {
+    type: "CourseCreated",
+    payload: newCourseToBeAdded,
+  });
   return res.json({ msg: "Course added successfully !" });
 });
 
