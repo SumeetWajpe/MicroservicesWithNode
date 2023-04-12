@@ -23,11 +23,6 @@ mongoose.connection.on("open", () => {
   console.log("Connected to Courses DB  !");
 });
 
-//get all courses
-app.get("/courses", async (req, res) => {
-  let listofcourses = await Course.find({});
-  res.json(listofcourses);
-});
 
 // adding a new course
 app.post("/newcourse", async (req, res) => {

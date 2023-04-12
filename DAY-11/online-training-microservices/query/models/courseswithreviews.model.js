@@ -10,6 +10,7 @@ const CourseWithReviewsSchema = new Schema({
   introVideo: String,
   imageUrl: String,
   description: String,
+  reviews: Array,
 });
 
 module.exports = CourseWithReviews = mongoose.model(

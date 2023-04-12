@@ -22,6 +22,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+//get all courses
+app.get("/courses", async (req, res) => {
+  let listofcourses = await CourseWithReviews.find({});
+  res.json(listofcourses);
+});
+
 app.post("/events", async (req, res) => {
   // logic for inserting new course/new review in querydb
   let { type, payload } = req.body;
