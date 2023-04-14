@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const Review = require("./models/reviews.model");
 var app = express();
+const amqplib = require("amqplib");
+const { randomBytes } = require("crypto");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -22,6 +24,17 @@ mongoose.connection.on("open", () => {
   console.log("Connected to Reviews DB  !");
 });
 
+let channel, connection;
+
+async function connectToRabbitMQ() {
+  connection = await amqplib.connect("amqp://localhost");
+  console.log("Rabbit MQ connected !");
+  channel = await connection.createChannel();
+  channel.assertQueue("review-created-queue");
+}
+
+connectToRabbitMQ();
+
 //get  reviews
 app.get("/reviews", async (req, res) => {
   let listofreviews = await Review.find({});
@@ -29,12 +42,21 @@ app.get("/reviews", async (req, res) => {
 });
 
 // adding a  review
-app.post("/newreview", async (req, res) => {
-  let review = req.body;
+app.post("/courses/:id/newreview", async (req, res) => {
+  const reviewid = randomBytes(4).toString("hex");
+  let { content } = req.body;
+  const courseId = req.params.id;
   let reviewToBeAdded = Review({
-    ...review,
+    reviewid,
+    content,
+    courseId,
   });
   await reviewToBeAdded.save();
+  // notify the event bus
+  channel.sendToQueue(
+    "review-created-queue",
+    Buffer.from(JSON.stringify({ newreview: id, content, courseId })),
+  );
   return res.json({ ms: "New review added successfully !" });
 });
 
