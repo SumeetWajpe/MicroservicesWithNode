@@ -6,7 +6,7 @@ function Course({ coursedetails }) {
       <div className="card" style={{ width: "18rem" }}>
         <img
           src={coursedetails.imageUrl}
-          class="card-img-top"
+          className="card-img-top"
           width="200px"
           alt={coursedetails.title}
         />
