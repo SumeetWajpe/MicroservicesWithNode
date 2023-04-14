@@ -2,7 +2,7 @@ import React from "react";
 
 function Course({ coursedetails }) {
   return (
-    <div className="col-md-4">
+    <div className="col-md-3 p-2">
       <div className="card" style={{ width: "18rem" }}>
         <img
           src={coursedetails.imageUrl}

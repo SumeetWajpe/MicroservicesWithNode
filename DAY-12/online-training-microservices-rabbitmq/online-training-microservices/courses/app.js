@@ -9,13 +9,14 @@ var app = express();
 const axios = require("axios");
 const amqplib = require("amqplib");
 const { randomBytes } = require("crypto");
+const cors = require("cors");
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use(cors());
 mongoose.connect(process.env.LOCAL_CONNECTION_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
