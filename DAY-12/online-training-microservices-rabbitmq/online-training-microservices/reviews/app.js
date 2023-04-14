@@ -27,7 +27,7 @@ mongoose.connection.on("open", () => {
 let channel, connection;
 
 async function connectToRabbitMQ() {
-  connection = await amqplib.connect("amqp://localhost");
+  connection = await amqplib.connect("amqp://0.0.0.0:5672");
   console.log("Rabbit MQ connected !");
   channel = await connection.createChannel();
   channel.assertQueue("review-created-queue");
@@ -55,9 +55,11 @@ app.post("/courses/:id/newreview", async (req, res) => {
   // notify the event bus
   channel.sendToQueue(
     "review-created-queue",
-    Buffer.from(JSON.stringify({ newreview: id, content, courseId })),
+    Buffer.from(
+      JSON.stringify({ newreview: { id: reviewid, content, courseId } }),
+    ),
   );
-  return res.json({ ms: "New review added successfully !" });
+  return res.json({ msg: "New review added successfully !" });
 });
 
 module.exports = app;

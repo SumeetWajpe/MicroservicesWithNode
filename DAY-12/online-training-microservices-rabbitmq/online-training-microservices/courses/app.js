@@ -8,6 +8,7 @@ const Course = require("./models/courses.model");
 var app = express();
 const axios = require("axios");
 const amqplib = require("amqplib");
+const { randomBytes } = require("crypto");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -27,7 +28,7 @@ mongoose.connection.on("open", () => {
 let channel, connection;
 
 async function connectToRabbitMQ() {
-  connection = await amqplib.connect("amqp://localhost");
+  connection = await amqplib.connect("amqp://0.0.0.0:5672");
   console.log("Rabbit MQ connected !");
   channel = await connection.createChannel();
   channel.assertQueue("course-created-queue");
@@ -37,8 +38,10 @@ connectToRabbitMQ();
 
 // adding a new course
 app.post("/newcourse", async (req, res) => {
+  const courseid = randomBytes(4).toString("hex");
   let newCourse = req.body;
   let newCourseToBeAdded = new Course({
+    id: courseid,
     ...newCourse,
     introVideo: "./videos/React.mp4",
   });

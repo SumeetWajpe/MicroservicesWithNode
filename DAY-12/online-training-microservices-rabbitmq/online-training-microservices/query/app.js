@@ -26,20 +26,37 @@ app.use(express.static(path.join(__dirname, "public")));
 let channel, connection;
 
 async function connectToRabbitMQ() {
-  connection = await amqplib.connect("amqp://localhost");
+  connection = await amqplib.connect("amqp://0.0.0.0:5672");
   console.log("Rabbit MQ connected !");
   channel = await connection.createChannel();
-  channel.assertQueue("course-created-queue");
+  await channel.assertQueue("course-created-queue");
+  await channel.assertQueue("review-created-queue");
 }
 
 connectToRabbitMQ().then(() => {
   channel.consume("course-created-queue", async data => {
-    console.log(data);
+    // console.log(data);
     let { newcourse } = JSON.parse(data.content);
     console.log("Received", newcourse);
     let courseToBeAdded = new CourseWithReviews({ ...newcourse, reviews: [] });
     let result = await courseToBeAdded.save();
     console.log(result);
+    channel.ack(data);
+  });
+
+  channel.consume("review-created-queue", async data => {
+    let { newreview } = JSON.parse(data.content);
+    console.log("Received", newreview);
+    let theCourse = await CourseWithReviews.findOne({ id: newreview.courseId });
+
+    if (theCourse) {
+      await CourseWithReviews.updateOne(
+        { id: newreview.courseId },
+        {
+          $push: { reviews: { id: newreview.id, content: newreview.content } },
+        },
+      );
+    }
     channel.ack(data);
   });
 });
