@@ -6,6 +6,7 @@ const CourseWithReviews = require("./models/courseswithreviews.model");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const amqplib = require("amqplib");
+const cors = require("cors");
 
 mongoose.connect(process.env.LOCAL_CONNECTION_STRING, {
   useNewUrlParser: true,
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors());
 
 let channel, connection;
 
