@@ -7,7 +7,7 @@ var app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-
+const cors = require("cors");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -22,6 +22,8 @@ mongoose.connect(process.env.LOCAL_CONNECTION_STRING, {
 mongoose.connection.on("open", () => {
   console.log("Connected to Auth DB  !");
 });
+
+app.use(cors());
 
 app.post("/auth/register", async (req, res) => {
   const { email, password, name } = req.body;

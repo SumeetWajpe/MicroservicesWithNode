@@ -65,7 +65,7 @@ connectToRabbitMQ().then(() => {
 });
 
 //get all courses
-app.get("/courses", isAuthenticated, async (req, res) => {
+app.post("/courses", isAuthenticated, async (req, res) => {
   let listofcourses = await CourseWithReviews.find({});
   res.json(listofcourses);
 });

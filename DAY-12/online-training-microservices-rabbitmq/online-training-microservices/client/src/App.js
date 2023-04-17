@@ -1,11 +1,13 @@
 import ListOfCourses from "./components/listofcourses.component";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import NewCourse from "./components/newcourse.component";
+import Login from "./components/login.component";
+import SignUp from "./components/signup.component";
 
 function App() {
   return (
     <BrowserRouter>
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+      {/* <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             Online Training
@@ -24,7 +26,7 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link active" to="/">
+                <Link className="nav-link active" to="/courses">
                   Courses
                 </Link>
               </li>
@@ -36,10 +38,14 @@ function App() {
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> */}
       <Routes>
-        <Route path="/" element={<ListOfCourses />} />
-        <Route path="/newcourse" element={<NewCourse />} />
+        <Route path="/" element={<Login />} />
+
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/courses" element={<ListOfCourses />} />
+        {/* <Route path="/courses" element={<ListOfCourses />} />
+        <Route path="/newcourse" element={<NewCourse />} /> */}
       </Routes>
     </BrowserRouter>
   );
