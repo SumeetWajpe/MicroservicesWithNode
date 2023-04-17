@@ -5,12 +5,23 @@ var logger = require("morgan");
 let User = require("./models/user.model");
 var app = express();
 require("dotenv").config();
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+mongoose.connect(process.env.LOCAL_CONNECTION_STRING, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+mongoose.connection.on("open", () => {
+  console.log("Connected to Auth DB  !");
+});
 
 app.post("/auth/register", async (req, res) => {
   const { email, password, name } = req.body;

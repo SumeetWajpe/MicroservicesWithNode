@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const amqplib = require("amqplib");
 const cors = require("cors");
+const isAuthenticated = require("isauthenticatedmiddleware");
 
 mongoose.connect(process.env.LOCAL_CONNECTION_STRING, {
   useNewUrlParser: true,
@@ -64,7 +65,7 @@ connectToRabbitMQ().then(() => {
 });
 
 //get all courses
-app.get("/courses", async (req, res) => {
+app.get("/courses", isAuthenticated, async (req, res) => {
   let listofcourses = await CourseWithReviews.find({});
   res.json(listofcourses);
 });
