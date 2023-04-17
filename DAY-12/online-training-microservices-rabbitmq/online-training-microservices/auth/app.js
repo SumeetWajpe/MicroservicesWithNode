@@ -4,6 +4,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 let User = require("./models/user.model");
 var app = express();
+require("dotenv").config();
 
 app.use(logger("dev"));
 app.use(express.json());

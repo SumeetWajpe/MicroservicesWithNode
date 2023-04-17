@@ -1,11 +1,8 @@
 {
   "name": "isauthenticatedmiddleware",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a middleware for authenticating users with JWT !",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
