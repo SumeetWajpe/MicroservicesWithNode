@@ -7,9 +7,12 @@ module.exports = async function isAuthenticated(req, res, next) {
     const token = authHeader.split(" ")[1];
     jwt.verify(token, SECRET_KET, (err, decodedToken) => {
       if (err) res.status(500).json({ err: err.message });
-      console.log(decodedToken);
+      else {
+        console.log(decodedToken);
+        req.user = decodedToken.name;
+        next();
+      }
     });
-    res.json({ msg: "success" });
   } else {
     return res.status(500).json({ message: "Token Not found !" });
   }
