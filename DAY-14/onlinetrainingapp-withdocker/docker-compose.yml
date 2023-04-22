@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - data:/data/db
+  rabbitmq:
+    image: rabbitmq:3.12-rc-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  courses:
+    image: courses
+    build: 
+      context: onlinetrainingapp-withdocker/courses
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+      - rabbitmq
+volumes:
+  data:
+    driver: local

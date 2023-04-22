@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
-mongoose.connect(process.env.LOCAL_CONNECTION_STRING, {
+mongoose.connect("mongodb://mongodb/coursesdb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -29,7 +29,7 @@ mongoose.connection.on("open", () => {
 let channel, connection;
 
 async function connectToRabbitMQ() {
-  connection = await amqplib.connect("amqp://0.0.0.0:5672");
+  connection = await amqplib.connect("amqp://rabbitmq");
   console.log("Rabbit MQ connected !");
   channel = await connection.createChannel();
   channel.assertQueue("course-created-queue");
