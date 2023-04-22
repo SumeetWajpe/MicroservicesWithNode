@@ -17,3 +17,9 @@ kubectl logs courses
 # To get pod description
 kubectl describe pod courses 
 
+# To get deployments
+kubectl get deployments
+
+# To delete a deployment
+kubectl delete deployment courses-dep
+
