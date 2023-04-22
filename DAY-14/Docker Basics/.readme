@@ -1,0 +1,13 @@
+Docker Commands
+
+# Building an image from docker file
+docker build -t hellodockerwithnode .
+
+# Running an image 
+docker run hellodockerwithnode
+
+# To list all containers
+ docker ps 
+
+ # To stop a container
+ docker stop containerID
