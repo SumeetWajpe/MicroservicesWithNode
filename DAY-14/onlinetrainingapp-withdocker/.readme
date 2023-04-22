@@ -1,0 +1,4 @@
+Docker Compose
+
+# Building and Running all containers
+docker compose up
