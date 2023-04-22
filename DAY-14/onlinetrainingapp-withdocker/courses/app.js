@@ -17,25 +17,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
-mongoose.connect("mongodb://mongodb/coursesdb", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect("mongodb://mongodb/coursesdb", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
-mongoose.connection.on("open", () => {
-  console.log("Connected to Courses DB  !");
-});
+// mongoose.connection.on("open", () => {
+//   console.log("Connected to Courses DB  !");
+// });
 
-let channel, connection;
+// let channel, connection;
 
-async function connectToRabbitMQ() {
-  connection = await amqplib.connect("amqp://rabbitmq");
-  console.log("Rabbit MQ connected !");
-  channel = await connection.createChannel();
-  channel.assertQueue("course-created-queue");
-}
+// async function connectToRabbitMQ() {
+//   connection = await amqplib.connect("amqp://rabbitmq");
+//   console.log("Rabbit MQ connected !");
+//   channel = await connection.createChannel();
+//   channel.assertQueue("course-created-queue");
+// }
 
-connectToRabbitMQ();
+// connectToRabbitMQ();
 
 // adding a new course
 app.post("/newcourse", async (req, res) => {

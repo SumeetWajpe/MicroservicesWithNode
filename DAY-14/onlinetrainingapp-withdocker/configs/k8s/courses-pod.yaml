@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: courses
+spec:
+  containers:
+    - name: courses
+      image: courses:latest
+      imagePullPolicy: Never

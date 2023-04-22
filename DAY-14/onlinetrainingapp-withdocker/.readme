@@ -2,3 +2,12 @@ Docker Compose
 
 # Building and Running all containers
 docker compose up
+
+# Kubernetes Commands
+
+# To Create a Pod / Depl / Service .yaml
+kubectl apply -f courses-pod.yaml
+
+# To get pods
+kubectl get pods
+
