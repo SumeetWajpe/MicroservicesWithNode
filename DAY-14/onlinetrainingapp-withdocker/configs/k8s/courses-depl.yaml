@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: courses-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: courses
+  template:
+    metadata:
+      labels:
+        app: courses
+    spec:
+      containers:
+        - name: courses
+          image: courses:latest
+          imagePullPolicy: Never

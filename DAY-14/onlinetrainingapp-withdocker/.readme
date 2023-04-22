@@ -11,3 +11,9 @@ kubectl apply -f courses-pod.yaml
 # To get pods
 kubectl get pods
 
+# To get pod logs
+kubectl logs courses
+
+# To get pod description
+kubectl describe pod courses 
+
