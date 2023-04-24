@@ -26,16 +26,16 @@ app.use(cors());
 //   console.log("Connected to Courses DB  !");
 // });
 
-// let channel, connection;
+let channel, connection;
 
-// async function connectToRabbitMQ() {
-//   connection = await amqplib.connect("amqp://rabbitmq");
-//   console.log("Rabbit MQ connected !");
-//   channel = await connection.createChannel();
-//   channel.assertQueue("course-created-queue");
-// }
+async function connectToRabbitMQ() {
+  connection = await amqplib.connect("amqp://rabbitmq-service");
+  console.log("Rabbit MQ connected !");
+  channel = await connection.createChannel();
+  channel.assertQueue("course-created-queue");
+}
 
-// connectToRabbitMQ();
+connectToRabbitMQ();
 
 // adding a new course
 
