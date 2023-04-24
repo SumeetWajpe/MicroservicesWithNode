@@ -38,6 +38,11 @@ app.use(cors());
 // connectToRabbitMQ();
 
 // adding a new course
+
+app.get("/courses", (req, res) => {
+  res.json({ courses: [] });
+});
+
 app.post("/newcourse", async (req, res) => {
   const courseid = randomBytes(4).toString("hex");
   let newCourse = req.body;
@@ -54,6 +59,10 @@ app.post("/newcourse", async (req, res) => {
     Buffer.from(JSON.stringify({ newcourse: newCourseToBeAdded })),
   );
   return res.json({ msg: "Course added successfully !" });
+});
+
+app.listen(3000, () => {
+  console.log("Courses running at port 3000 !");
 });
 
 module.exports = app;

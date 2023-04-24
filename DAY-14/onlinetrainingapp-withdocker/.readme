@@ -23,3 +23,5 @@ kubectl get deployments
 # To delete a deployment
 kubectl delete deployment courses-dep
 
+# To restart deployment - changes in the image
+kubectl rollout restart deployment courses-dep

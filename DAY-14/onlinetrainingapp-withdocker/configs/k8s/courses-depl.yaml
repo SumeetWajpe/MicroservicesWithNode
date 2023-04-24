@@ -16,3 +16,16 @@ spec:
         - name: courses
           image: courses:latest
           imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: courses-srv-cl-ip
+spec:
+  selector:
+    app: courses
+  ports:
+    - name: courses
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
