@@ -37,12 +37,10 @@ async function connectToRabbitMQ() {
 
 connectToRabbitMQ();
 
+
+
+
 // adding a new course
-
-app.get("/courses", (req, res) => {
-  res.json({ courses: [] });
-});
-
 app.post("/newcourse", async (req, res) => {
   const courseid = randomBytes(4).toString("hex");
   let newCourse = req.body;
