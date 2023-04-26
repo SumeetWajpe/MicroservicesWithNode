@@ -4,7 +4,7 @@ import Course from "./course.component";
 function ListOfCourses() {
   let [courses, setCourses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3002/courses", {
+    fetch("http://onlinetraining.com/courses", {
       method: "POST",
       headers: {
         authorization: `Bearer ${localStorage["jwt-token"]}`,

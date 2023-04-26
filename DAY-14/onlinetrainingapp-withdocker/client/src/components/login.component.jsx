@@ -13,7 +13,7 @@ function Login() {
         <form
           onSubmit={e => {
             e.preventDefault();
-            fetch("http://localhost:3003/auth/login", {
+            fetch("http://onlinetraining.com/auth/login", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -26,7 +26,7 @@ function Login() {
               .then(msg => {
                 if (msg["token"]) {
                   localStorage["jwt-token"] = msg["token"];
-                  navigate("/courses");
+                  navigate("/listofcourses");
                 }
               });
           }}

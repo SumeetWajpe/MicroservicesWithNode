@@ -70,6 +70,4 @@ app.post("/courses", isAuthenticated, async (req, res) => {
   res.json(listofcourses);
 });
 
-
-
 module.exports = app;
