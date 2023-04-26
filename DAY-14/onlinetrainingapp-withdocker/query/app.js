@@ -9,7 +9,7 @@ const amqplib = require("amqplib");
 const cors = require("cors");
 const isAuthenticated = require("isauthenticatedmiddleware");
 
-mongoose.connect(process.env.LOCAL_CONNECTION_STRING, {
+mongoose.connect("mongodb://mongodb-service/querydb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -29,7 +29,7 @@ app.use(cors());
 let channel, connection;
 
 async function connectToRabbitMQ() {
-  connection = await amqplib.connect("amqp://0.0.0.0:5672");
+  connection = await amqplib.connect("amqp://rabbitmq-service");
   console.log("Rabbit MQ connected !");
   channel = await connection.createChannel();
   await channel.assertQueue("course-created-queue");
@@ -70,17 +70,6 @@ app.post("/courses", isAuthenticated, async (req, res) => {
   res.json(listofcourses);
 });
 
-// app.post("/events", async (req, res) => {
-//   // logic for inserting new course/new review in querydb
-//   let { type, payload } = req.body;
-//   console.log("Within Query Service !");
 
-//   if (type == "CourseCreated") {
-//     let courseToBeAdded = new CourseWithReviews({ ...payload, reviews: [] });
-//     await courseToBeAdded.save();
-//   }
-
-//   res.json({ status: "OK" });
-// });
 
 module.exports = app;

@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-mongoose.connect(process.env.LOCAL_CONNECTION_STRING, {
+mongoose.connect("mongodb://mongodb-service/authdb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

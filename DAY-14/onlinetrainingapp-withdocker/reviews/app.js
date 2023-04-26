@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-mongoose.connect(process.env.LOCAL_CONNECTION_STRING, {
+mongoose.connect("mongodb://mongodb-service/reviewsdb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -27,7 +27,7 @@ mongoose.connection.on("open", () => {
 let channel, connection;
 
 async function connectToRabbitMQ() {
-  connection = await amqplib.connect("amqp://0.0.0.0:5672");
+  connection = await amqplib.connect("amqp://rabbitmq-service");
   console.log("Rabbit MQ connected !");
   channel = await connection.createChannel();
   channel.assertQueue("review-created-queue");
