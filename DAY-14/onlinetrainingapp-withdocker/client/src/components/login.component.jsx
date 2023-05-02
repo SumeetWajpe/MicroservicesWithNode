@@ -27,7 +27,7 @@ function Login() {
                 .then(msg => {
                   if (msg["token"]) {
                     localStorage["jwt-token"] = msg["token"];
-                    navigate("/listofcourses");
+                    navigate("/dashboard/listofcourses");
                   }
                 });
             }}
