@@ -5,6 +5,7 @@ import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 import Dashboard from "./components/dashboard.component";
 import AuthProvider from "./components/auth_provider";
+import RequireAuth from "./components/requireauth.component";
 
 function App() {
   return (
@@ -14,7 +15,14 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
 
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          >
             <Route path="listofcourses" element={<ListOfCourses />} />
             <Route path="newcourse" element={<NewCourse />} />
           </Route>
