@@ -14,7 +14,7 @@ function NewCourse() {
         <form
           onSubmit={e => {
             e.preventDefault();
-            fetch("http://localhost:3000/newcourse", {
+            fetch("http://onlinetraining.com/newcourse", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -26,7 +26,7 @@ function NewCourse() {
               .then(res => res.json())
               .then(message => {
                 if (message.msg == "Course added successfully !") {
-                  navigate("/");
+                  navigate("/dashboard/listofcourses");
                 }
               }); // POST
           }}
