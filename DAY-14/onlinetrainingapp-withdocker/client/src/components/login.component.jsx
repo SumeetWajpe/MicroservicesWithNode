@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./signup.component.css";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./authprovider";
 
 function Login() {
   let [user, setUser] = useState({ email: "", password: "" });
   let navigate = useNavigate();
+  const authCtx = useAuth();
   return (
     <div className="main-container">
       <div className="main">
@@ -27,6 +29,7 @@ function Login() {
                 .then(msg => {
                   if (msg["token"]) {
                     localStorage["jwt-token"] = msg["token"];
+                    authCtx?.login({ ...user, isLoggedIn: true });
                     navigate("/dashboard/listofcourses");
                   }
                 });
