@@ -4,7 +4,7 @@ import NewCourse from "./components/newcourse.component";
 import Login from "./components/login.component";
 import SignUp from "./components/signup.component";
 import Dashboard from "./components/dashboard.component";
-import AuthProvider from "./components/authprovider";
+import AuthProvider from "./components/auth_provider";
 
 function App() {
   return (

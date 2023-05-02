@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./signup.component.css";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "./authprovider";
+import { useAuth } from "./auth_provider";
 
 function Login() {
   let [user, setUser] = useState({ email: "", password: "" });

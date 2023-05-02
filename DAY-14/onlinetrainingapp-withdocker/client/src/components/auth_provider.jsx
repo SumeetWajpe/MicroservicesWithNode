@@ -6,6 +6,7 @@ const AuthContext = createContext();
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(new CurrentUser());
   const login = curr_user => {
+    console.log("Setting isLoggedIn - true !");
     setUser(curr_user);
   };
   return (
