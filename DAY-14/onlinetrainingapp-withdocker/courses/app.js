@@ -39,7 +39,7 @@ async function connectToRabbitMQ() {
 connectToRabbitMQ();
 
 // adding a new course
-app.post("/newcourse", isAuthenticated, async (req, res) => {
+app.post("/newcourse", async (req, res) => {
   const courseid = randomBytes(4).toString("hex");
   let newCourse = req.body;
   let newCourseToBeAdded = new Course({

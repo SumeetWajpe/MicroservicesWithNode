@@ -9,8 +9,11 @@ export default function AuthProvider({ children }) {
     console.log("Setting isLoggedIn - true !");
     setUser(curr_user);
   };
+  const logout = () => {
+    setUser({ name: "", email: "", password: "", isLoggedIn: false });
+  };
   return (
-    <AuthContext.Provider value={{ user, login }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
